@@ -39,3 +39,4 @@ class ActiveSupport::TestCase
                                             remember_me: remember_me } }
     end
   end
+end

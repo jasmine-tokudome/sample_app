@@ -19,7 +19,7 @@ module SessionsHelper
   def current_user
     if (user_id = session[:user_id])
       user = User.find_by(id: user_id)
-      if user && session[:session_token] == user.（remember_token）
+      if user && session[:session_token] == user.remember_digest
         @current_user = user
       end
     elsif (user_id = cookies.encrypted[:user_id])
@@ -41,4 +41,19 @@ module SessionsHelper
     reset_session
     @current_user = nil
   end
+  
+  # 永続的セッションを破棄する
+  def forget(user)
+    user.forget
+    cookies.delete(:user_id)
+    cookies.delete(:remember_token)
+  end
+
+  # 現在のユーザーをログアウトする
+  def log_out
+    forget(current_user)
+    reset_session
+    @current_user = nil
+  end
+
 end
