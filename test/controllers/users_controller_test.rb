@@ -12,6 +12,11 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should redirect index when not logged in" do
+    get users_path
+    assert_redirected_to login_url
+  end
+
   test "should redirect update when not logged in" do
     patch user_path(@user), params: { user: { name: @user.name,
                                               email: @user.email } }
