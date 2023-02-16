@@ -6483,3 +6483,915 @@ SessionsHelperTest: test_current_user_returns_right_user_when_session_is_nil
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
   [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "password_digest" varchar, "remember_digest" varchar, "admin" boolean DEFAULT 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20230216131113)[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20230121135308),
+(20230122150428),
+(20230122153256),
+(20230205131724);
+
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2023-02-16 13:34:35.448140"], ["updated_at", "2023-02-16 13:34:35.448140"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "0a50085c9878b8fad0820cecaf5ec91174b15514"], ["created_at", "2023-02-16 13:34:35.449565"], ["updated_at", "2023-02-16 13:34:35.449565"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.3ms)[0m  [1m[31mDELETE FROM "users";
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest", "admin") VALUES (762146111, 'Michael Example', 'michael@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$TtApNn3UfJ/tcq9BQ5WXjebkEv.paSNb7BXPD7mEpcG1UCA6NFuRC', 1);
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (950961012, 'Sterling Archer', 'duchess@example.gov', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$6k.V068gCgnPqMaSRZIF1ejooT.QjBjIlYpTWtOEl/J1aMAjX4wa2');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (409608538, 'Lana Kane', 'hands@example.gov', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$Vc4DxYFX5w3QbEf/BYkwH.2gi8ea4Fc3AqjrIJ3/I58JuEKOoa2qK');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (659682706, 'Malory Archer', 'boss@example.gov', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$QW1rpdueTEd9RO3vRQlum.cziMR3qDDC9hM9HQsmoy8AiQiIcqDvW');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (338193910, 'User 0', 'user-0@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$hjs7KudTZ2Zw2GdkkdSs8OoufPzH7pxImv9/uyVrtE8lAqd1KvELq');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (590306657, 'User 1', 'user-1@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$/95poEPiFxBn/F1Tpdshq.rNfqzhaRbv2rubDEFvyC2gaO0gClJcu');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (975572189, 'User 2', 'user-2@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$ajMXdmm3ZjxpYb.ZR9lCvOwxi6Sn2CJmFdD2EfNunhy/uoCzz0Xti');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (220281934, 'User 3', 'user-3@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$oKVxkyKO3RD19wwwUzSFlO2w9LkeCIQnC4LT13dxb8rHeVxoyOFkq');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (323332591, 'User 4', 'user-4@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$uMYXIubPR2WDuVzpxy9XoOhxap0a0TTqCMGh/y2UccUBETzZJVVby');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (608344442, 'User 5', 'user-5@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$R.Ih9qA7f3gYzCrU/YWF1uK07kWZypa5yhCWLpN8ArMcNynt9ekje');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (1028376774, 'User 6', 'user-6@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$EN2/WT.CEYHTUOGlXGjYUObsuD/W8K53J9UeTUS7nZwUm/JJpjqy6');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (172816471, 'User 7', 'user-7@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$ITDMz7NYi/y77EwxKsYWe.kpaXQYoVWX0Ym7lHENWcnqXHJnPJHle');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (452191684, 'User 8', 'user-8@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$Vhx3FsMDahZ20XWhroCc4.QXw0A6hnrxkg4hNYqGphyfkxywxuW4q');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (771020115, 'User 9', 'user-9@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$QPSVHDJgMbxRfjwLIBkioeY/IN8hXZQEAqGCQpWOVQRnj2lZQ/EAa');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (956993830, 'User 10', 'user-10@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$UCyiPLp9XQP04OOfn2rw8OYp/dDDLIDm5XJpnSvr1uJmGXoqvN1Zy');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (235774389, 'User 11', 'user-11@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$FJyJ4L1knZCkwK4EQ2DBFOLKRqAgakdnzdU/hYsxtt06ZsuK15k9K');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (386199561, 'User 12', 'user-12@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$m4ooFeiRuN4li9JZmUHxJ.CNAcX.Plpn5wf4KWkv1x8yqfa83eKl.');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (537116830, 'User 13', 'user-13@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$Sko3X/e0RKi7RHY6xP8F9OnyJ4zLn6E7l11LaBE2y4ReKfDe8ghTi');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (1046959423, 'User 14', 'user-14@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$7x4peWOUm8EpnjVrZPt/C.Rd6lIkEjl54o/CZoVobzmOnO0XBwuX6');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (157312430, 'User 15', 'user-15@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$YLsh5KQmBSfX2pU6KqMw.Oa86ANLaOM2awle8mrW/PsXmxIULjhcK');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (275330066, 'User 16', 'user-16@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$DqmO/TEm0/dl7ZH3sU/i.ePGVrAjN/Sk5tLvdh166dmzzA6t8u9qu');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (661521543, 'User 17', 'user-17@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$RTgsweZDRuQceg24jJ9rfu8az92GByt4xozuGqmhnKTmNVs0B0vda');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (936450328, 'User 18', 'user-18@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$mNpL1wuYa344TKkwsfLvSu6imbgohmga8J5AoLN9JhVDVrBxRQ016');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (14035331, 'User 19', 'user-19@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$TprDdgMI1KZ9QFtBufpm.eVo1zyUg9/yK5y9xBV9kdw/k7tg6uCju');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (304595689, 'User 20', 'user-20@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$MBVS0hs1aPXb3qoxKapwwuU8lpmvXSLLvU3vYeAtfgJ.8R640TEtC');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (622916212, 'User 21', 'user-21@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$.fangqVV3fDXDb1tmN9.EeeIkXna87e10nozYx5Z5nvTSW0XGjyrO');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (1009361868, 'User 22', 'user-22@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$M3oQnMAoO4kRYpYjtdEaXe5dmPJnRrM8JaATZBa6at7s10/XAmlqC');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (187601757, 'User 23', 'user-23@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$bn7J/x.4xrJ7sn0Wf.psJeRDl5TpgvaFgmCzLfai0Ix6IiKI5x9Re');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (357172992, 'User 24', 'user-24@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$YezGDfGJNX50DHl.9w9bG.CDkPZ0ZGS/0/Bd3FgxU9d38SFCXDG4i');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (575485547, 'User 25', 'user-25@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$3CUuTYLZntxdvM/myzYdjuxtzgMmXYdgnKDg0j9rlxtVJlqzg4c8S');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (994338771, 'User 26', 'user-26@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$h8szCW1peaEmdpPXFxM40.bi4uIIv.rySzTwJP4IdgORu.b1zCzVa');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (205739844, 'User 27', 'user-27@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$tG/VxPRv3jXkuc32HM6.k.Q8o9Q5jlQMUv88ZlFQKcLAfhL0ifqGW');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (486296279, 'User 28', 'user-28@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$GV9pDhjkrLwR2AX83oqg8.yTljvskUh3.9rUOxCValxYJbmqxM74.');
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at", "password_digest") VALUES (737901126, 'User 29', 'user-29@example.com', '2023-02-16 13:34:35.582665', '2023-02-16 13:34:35.582665', '$2a$04$lTuLbOtKJLNyn3OImBVETu4dKCSXGL0Rl7.LcUf8uEo1RWpF3gMA.')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+UserTest: test_password_should_be_present_(nonblank)
+----------------------------------------------------
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+UserTest: test_name_should_be_present
+-------------------------------------
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------------------------
+UserTest: test_authenticated?_should_return_false_for_a_user_with_nil_digest
+----------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+UserTest: test_email_addresses_should_be_unique
+-----------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "remember_digest", "admin") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Example User"], ["email", "user@example.com"], ["created_at", "2023-02-16 13:34:35.596907"], ["updated_at", "2023-02-16 13:34:35.596907"], ["password_digest", "[FILTERED]"], ["remember_digest", nil], ["admin", 0]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------------
+UserTest: test_email_validation_should_accept_valid_addresses
+-------------------------------------------------------------
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "USER@foo.COM"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "A_US-ER@foo.bar.org"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "first.last@foo.jp"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice+bob@baz.cn"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------
+UserTest: test_email_should_be_present
+--------------------------------------
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "     "], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------
+UserTest: test_email_addresses_should_be_saved_as_lowercase
+-----------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "Foo@ExAMPle.CoM"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "remember_digest", "admin") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Example User"], ["email", "foo@example.com"], ["created_at", "2023-02-16 13:34:35.601789"], ["updated_at", "2023-02-16 13:34:35.601789"], ["password_digest", "[FILTERED]"], ["remember_digest", nil], ["admin", 0]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1046959424], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------
+UserTest: test_name_should_not_be_too_long
+------------------------------------------
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------
+UserTest: test_should_be_valid
+------------------------------
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------
+UserTest: test_email_should_not_be_too_long
+-------------------------------------------
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------
+UserTest: test_email_validation_should_reject_invalid_addresses
+---------------------------------------------------------------
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example,com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user_at_foo.org"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user.name@example."], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "foo@bar_baz.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "foo@bar+baz.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+UserTest: test_password_should_have_a_minimum_length
+----------------------------------------------------
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------
+UsersSignupTest: test_invalid_signup_information
+------------------------------------------------
+Started GET "/signup" for 127.0.0.1 at 2023-02-16 22:34:35 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 245)
+  Rendered users/_form.html.erb (Duration: 153.5ms | Allocations: 276931)
+  Rendered users/new.html.erb within layouts/application (Duration: 154.5ms | Allocations: 277418)
+  Rendered layouts/_rails_default.html.erb (Duration: 391.3ms | Allocations: 48862)
+  Rendered layouts/_header.html.erb (Duration: 1.4ms | Allocations: 707)
+  Rendered layouts/_footer.html.erb (Duration: 0.6ms | Allocations: 217)
+  Rendered layout layouts/application.html.erb (Duration: 553.2ms | Allocations: 341363)
+Completed 200 OK in 561ms (Views: 555.3ms | ActiveRecord: 0.0ms | Allocations: 344508)
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/users" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"", "email"=>"user@invalid", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@invalid"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.9ms | Allocations: 1824)
+  Rendered users/_form.html.erb (Duration: 2.2ms | Allocations: 5322)
+  Rendered users/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 5369)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.1ms | Allocations: 411)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 200)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 68)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 7135)
+Completed 422 Unprocessable Entity in 5ms (Views: 2.9ms | ActiveRecord: 0.1ms | Allocations: 8091)
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+UsersSignupTest: test_valid_signup_information
+----------------------------------------------
+  [1m[36mUser Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/users" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "remember_digest", "admin") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Example User"], ["email", "user@example.com"], ["created_at", "2023-02-16 13:34:36.211485"], ["updated_at", "2023-02-16 13:34:36.211485"], ["password_digest", "[FILTERED]"], ["remember_digest", nil], ["admin", 0]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "remember_digest" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-02-16 13:34:36.212960"], ["remember_digest", "$2a$04$USiNB8bqHl01uXSQjuhcq.T/V/1Vi2NOHuI2sG0Ii9mDMH8G9YwdG"], ["id", 1046959424]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users/1046959424
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 1558)
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started GET "/users/1046959424" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1046959424"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1046959424], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 287)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.1ms | Allocations: 405)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1046959424], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1046959424], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1046959424], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 886)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 67)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 2752)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 3306)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------------------------
+UsersIndexTest: test_index_as_admin_including_pagination_and_delete_links
+-------------------------------------------------------------------------
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+Started POST "/login" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"michael@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "michael@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "remember_digest" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-02-16 13:34:36.223069"], ["remember_digest", "$2a$04$b9E84fUA/0Zto0IuYRPDC.OKqIJFSDwI5jHi0/qtXqwWgHATGYgem"], ["id", 762146111]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users/762146111
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 1268)
+Started GET "/users" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  Rendered collection of users/_user.html.erb [30 times] (Duration: 9.8ms | Allocations: 10564)
+  Rendered users/index.html.erb within layouts/application (Duration: 12.0ms | Allocations: 13080)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.2ms | Allocations: 407)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 507)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 68)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 15143)
+Completed 200 OK in 13ms (Views: 12.5ms | ActiveRecord: 0.3ms | Allocations: 15844)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mCACHE User Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started DELETE "/users/950961012" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"950961012"}
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Destroy (0.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 950961012]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users
+Completed 303 See Other in 1ms (ActiveRecord: 0.1ms | Allocations: 898)
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+UsersIndexTest: test_index_as_non-admin
+---------------------------------------
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+Started POST "/login" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"duchess@example.gov", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "duchess@example.gov"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "remember_digest" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-02-16 13:34:36.249396"], ["remember_digest", "$2a$04$Hfk1TLFR4pdmWTQSguVc1.37qz9gdPYv8Da3e4j5/9QLTQY4kFKTi"], ["id", 950961012]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users/950961012
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 951)
+Started GET "/users" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  Rendered collection of users/_user.html.erb [30 times] (Duration: 2.6ms | Allocations: 5745)
+  Rendered users/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 7360)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.1ms | Allocations: 406)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 506)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 67)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 9420)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.1ms | Allocations: 10033)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------------------
+UsersControllerTest: test_should_redirect_update_when_not_logged_in
+-------------------------------------------------------------------
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+Started PATCH "/users/762146111" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"Michael Example", "email"=>"michael@example.com"}, "id"=>"762146111"}
+Redirected to http://www.example.com/login
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 303 See Other in 0ms (ActiveRecord: 0.0ms | Allocations: 219)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------------------------------
+UsersControllerTest: test_should_redirect_destroy_when_logged_in_as_a_non-admin
+-------------------------------------------------------------------------------
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+Started POST "/login" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"duchess@example.gov", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "duchess@example.gov"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "remember_digest" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-02-16 13:34:36.259881"], ["remember_digest", "$2a$04$JQlMjNp/gnCuIvGpb6qcK.8odNuAN1PkGjt2nMlYMuf60WKqN0c1y"], ["id", 950961012]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users/950961012
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 951)
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started DELETE "/users/762146111" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"762146111"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Filter chain halted as :admin_user rendered or redirected
+Completed 303 See Other in 1ms (ActiveRecord: 0.0ms | Allocations: 537)
+  [1m[36mCACHE User Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------------------
+UsersControllerTest: test_should_redirect_index_when_not_logged_in
+------------------------------------------------------------------
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+Started GET "/users" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by UsersController#index as HTML
+Redirected to http://www.example.com/login
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 303 See Other in 1ms (ActiveRecord: 0.0ms | Allocations: 229)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+Started GET "/signup" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered users/_form.html.erb (Duration: 0.5ms | Allocations: 1151)
+  Rendered users/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 1200)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.1ms | Allocations: 413)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 199)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 67)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | Allocations: 2960)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 3195)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+UsersControllerTest: test_should_redirect_destroy_when_not_logged_in
+--------------------------------------------------------------------
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mUser Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started DELETE "/users/762146111" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"762146111"}
+Redirected to http://www.example.com/login
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 303 See Other in 0ms (ActiveRecord: 0.0ms | Allocations: 207)
+  [1m[36mCACHE User Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------
+UsersControllerTest: test_should_redirect_edit_when_logged_in_as_wrong_user
+---------------------------------------------------------------------------
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+Started POST "/login" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"duchess@example.gov", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "duchess@example.gov"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "remember_digest" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-02-16 13:34:36.273139"], ["remember_digest", "$2a$04$TxvVAvtBqkuBghmGCSh9f.QfpVZJxLqcLRR7TtrMbTCY1zg607LFS"], ["id", 950961012]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users/950961012
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 951)
+Started GET "/users/762146111/edit" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"762146111"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Filter chain halted as :correct_user rendered or redirected
+Completed 303 See Other in 1ms (ActiveRecord: 0.0ms | Allocations: 653)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------------------------
+UsersControllerTest: test_should_redirect_update_when_logged_in_as_wrong_user
+-----------------------------------------------------------------------------
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+Started POST "/login" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"duchess@example.gov", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "duchess@example.gov"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "remember_digest" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-02-16 13:34:36.278172"], ["remember_digest", "$2a$04$KxztL1Zs8jNwkxOu/CEOVu9WFWuanDAtVF7IsJUyBd/h7PdH7Hj/G"], ["id", 950961012]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users/950961012
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 951)
+Started PATCH "/users/762146111" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"Michael Example", "email"=>"michael@example.com"}, "id"=>"762146111"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 950961012], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Filter chain halted as :correct_user rendered or redirected
+Completed 303 See Other in 1ms (ActiveRecord: 0.0ms | Allocations: 619)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+UsersLoginTest: test_login_with_valid_information_followed_by_logout
+--------------------------------------------------------------------
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+Started POST "/login" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"michael@example.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "michael@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", "$2a$04$7S0Ym7u.NXKDA2x1HfKRrOBNdpSVH.BsQmVGcODy.OymC0jJbvbsa"], ["updated_at", "2023-02-16 13:34:36.284156"], ["id", 762146111]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users/762146111
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 836)
+Started GET "/users/762146111" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"762146111"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.0ms | Allocations: 67)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.1ms | Allocations: 405)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 704)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 67)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | Allocations: 2323)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 2647)
+Started DELETE "/logout" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by SessionsController#destroy as HTML
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "remember_digest" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-02-16 13:34:36.287445"], ["remember_digest", nil], ["id", 762146111]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 303 See Other in 1ms (ActiveRecord: 0.0ms | Allocations: 840)
+Started DELETE "/logout" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 303 See Other in 0ms (ActiveRecord: 0.0ms | Allocations: 282)
+Started GET "/" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 541)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.1ms | Allocations: 433)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 316)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 72)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 2471)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms | Allocations: 3057)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------
+UsersLoginTest: test_login_with_remembering
+-------------------------------------------
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+Started POST "/login" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"michael@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "michael@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "remember_digest" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-02-16 13:34:36.296640"], ["remember_digest", "$2a$04$EVYO1PTm1lZ.EySH9WwiuOd7coP6pP0gvQveo16KW5RZ6ei8FIP2a"], ["id", 762146111]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users/762146111
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 952)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------------
+UsersLoginTest: test_login_with_valid_email/invalid_password
+------------------------------------------------------------
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+Started GET "/login" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1230)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.2ms | Allocations: 464)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 213)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 72)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 3091)
+Completed 200 OK in 4ms (Views: 3.9ms | ActiveRecord: 0.0ms | Allocations: 3646)
+Started POST "/login" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"michael@example.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "michael@example.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.2ms | Allocations: 652)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.1ms | Allocations: 406)
+  Rendered layouts/_header.html.erb (Duration: 0.0ms | Allocations: 134)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 67)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | Allocations: 2355)
+Completed 422 Unprocessable Entity in 2ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 2780)
+Started GET "/" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 308)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.1ms | Allocations: 409)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 294)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 67)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | Allocations: 2156)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 2375)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+UsersLoginTest: test_login_without_remembering
+----------------------------------------------
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+Started POST "/login" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"michael@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "michael@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "remember_digest" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-02-16 13:34:36.309451"], ["remember_digest", "$2a$04$Jq2h28HVW.HhMCCcJw3EBuktwlmjJ2tD3jm.3K5CK8cnh1G9oXPjO"], ["id", 762146111]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users/762146111
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 952)
+Started POST "/login" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"michael@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "michael@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "remember_digest" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-02-16 13:34:36.311885"], ["remember_digest", nil], ["id", 762146111]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", "$2a$04$xGZ3Mliu9eqKC/mg0gyiO.2RJvKE6fifMXTkjBfz1pXjnw4wXTsAy"], ["updated_at", "2023-02-16 13:34:36.313105"], ["id", 762146111]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users/762146111
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 1202)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+StaticPagesControllerTest: test_should_get_home
+-----------------------------------------------
+Started GET "/" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 311)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.1ms | Allocations: 409)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 199)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 67)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | Allocations: 2066)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 2284)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------
+StaticPagesControllerTest: test_should_get_about
+------------------------------------------------
+Started GET "/about" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by StaticPagesController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (Duration: 0.6ms | Allocations: 131)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.1ms | Allocations: 415)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 203)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 67)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 1897)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 2172)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------
+StaticPagesControllerTest: test_should_get_contact
+--------------------------------------------------
+Started GET "/contact" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by StaticPagesController#contact as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/contact.html.erb within layouts/application
+  Rendered static_pages/contact.html.erb within layouts/application (Duration: 0.3ms | Allocations: 127)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.1ms | Allocations: 415)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 203)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 67)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | Allocations: 1893)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 2168)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+StaticPagesControllerTest: test_should_get_help
+-----------------------------------------------
+Started GET "/help" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by StaticPagesController#help as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/help.html.erb within layouts/application
+  Rendered static_pages/help.html.erb within layouts/application (Duration: 0.3ms | Allocations: 129)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.1ms | Allocations: 415)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 203)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 67)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | Allocations: 1895)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 2170)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------------------------------
+SessionsHelperTest: test_current_user_returns_nil_when_remember_digest_is_wrong
+-------------------------------------------------------------------------------
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "remember_digest" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-02-16 13:34:36.323991"], ["remember_digest", "$2a$04$byWclc3QnXLOo/1hSc3Yne1sv46hQVthpOpzlTVXPCuDc5tSJAXs2"], ["id", 762146111]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", "$2a$04$SLt7W7vBO0tyxBnr94dep.xdYPLArs9jextNI7gPtSLUsn19CPaGW"], ["updated_at", "2023-02-16 13:34:36.325446"], ["id", 762146111]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------------------------
+SessionsHelperTest: test_current_user_returns_right_user_when_session_is_nil
+----------------------------------------------------------------------------
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "remember_digest" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-02-16 13:34:36.328523"], ["remember_digest", "$2a$04$hsJdetuI0cEDtbDEd9IQnuJ5RYLdb8f5b16cvQwh.4RI8K2KAkmyO"], ["id", 762146111]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+Started GET "/login" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.2ms | Allocations: 655)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.1ms | Allocations: 414)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 199)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 67)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | Allocations: 2416)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 2634)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------
+SiteLayoutTest: test_layout_links
+---------------------------------
+Started GET "/" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 311)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.1ms | Allocations: 409)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 199)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 67)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | Allocations: 2066)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 2284)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------
+UsersEditTest: test_successful_edit
+-----------------------------------
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+Started POST "/login" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"michael@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "michael@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "remember_digest" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-02-16 13:34:36.336708"], ["remember_digest", "$2a$04$mBLo0W9tSqAVB.GndsAMKuhdfkckToUsehLrhLWsNLdXSRAtbMY36"], ["id", 762146111]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users/762146111
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 951)
+Started GET "/users/762146111/edit" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"762146111"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/edit.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered users/_form.html.erb (Duration: 0.5ms | Allocations: 1234)
+  Rendered users/edit.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1499)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.1ms | Allocations: 405)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 507)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 67)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 3559)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms | Allocations: 4339)
+Started PATCH "/users/762146111" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"Foo Bar", "email"=>"foo@bar.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "id"=>"762146111"}
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "foo@bar.com"], ["id", 762146111], ["LIMIT", 1]]
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "name" = ?, "email" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["name", "Foo Bar"], ["email", "foo@bar.com"], ["updated_at", "2023-02-16 13:34:36.341369"], ["id", 762146111]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users/762146111
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 1308)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------------
+UsersEditTest: test_successful_edit_with_friendly_forwarding
+------------------------------------------------------------
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+Started GET "/users/762146111/edit" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"762146111"}
+Redirected to http://www.example.com/login
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 303 See Other in 0ms (ActiveRecord: 0.0ms | Allocations: 220)
+Started POST "/login" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"michael@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "michael@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "remember_digest" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-02-16 13:34:36.346002"], ["remember_digest", "$2a$04$hihayya4abPRsGoBkubBXePw2ce6ORXoC8rODFkd88mPv6VcxHRLK"], ["id", 762146111]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users/762146111/edit
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 1030)
+Started PATCH "/users/762146111" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"Foo Bar", "email"=>"foo@bar.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "id"=>"762146111"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "foo@bar.com"], ["id", 762146111], ["LIMIT", 1]]
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "name" = ?, "email" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["name", "Foo Bar"], ["email", "foo@bar.com"], ["updated_at", "2023-02-16 13:34:36.347695"], ["id", 762146111]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users/762146111
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 1299)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+UsersEditTest: test_unsuccessful_edit
+-------------------------------------
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+Started POST "/login" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"michael@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "michael@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "remember_digest" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-02-16 13:34:36.351299"], ["remember_digest", "$2a$04$mydaBSoVNHf1KPnr1a6W5OlMMNMtF7sLvT5Vfg4oDua8aiuvmLrfa"], ["id", 762146111]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users/762146111
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 951)
+Started GET "/users/762146111/edit" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"762146111"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/edit.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered users/_form.html.erb (Duration: 0.5ms | Allocations: 1228)
+  Rendered users/edit.html.erb within layouts/application (Duration: 0.5ms | Allocations: 1326)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.1ms | Allocations: 405)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 506)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 67)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | Allocations: 3385)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms | Allocations: 4103)
+Started PATCH "/users/762146111" for 127.0.0.1 at 2023-02-16 22:34:36 +0900
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"", "email"=>"foo@invalid", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "id"=>"762146111"}
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "foo@invalid"], ["id", 762146111], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering users/edit.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 1570)
+  Rendered users/_form.html.erb (Duration: 1.7ms | Allocations: 5109)
+  Rendered users/edit.html.erb within layouts/application (Duration: 1.7ms | Allocations: 5205)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.1ms | Allocations: 405)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 762146111], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 527)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 67)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 7283)
+Completed 422 Unprocessable Entity in 4ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 8617)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
