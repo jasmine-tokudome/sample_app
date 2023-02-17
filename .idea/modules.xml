@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/sample_app1.iml" filepath="$PROJECT_DIR$/.idea/modules/sample_app1.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/sample_app.iml" filepath="$PROJECT_DIR$/.idea/sample_app.iml" />
+>>>>>>> updating-users2
     </modules>
   </component>
 </project>

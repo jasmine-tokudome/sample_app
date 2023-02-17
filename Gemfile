@@ -4,6 +4,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem "rails",           "7.0.4"
 gem "bcrypt",          "3.1.18"
 gem "faker",           "2.21.0"
+<<<<<<< HEAD
+=======
+gem "will_paginate",           "3.3.1"
+gem "bootstrap-will_paginate", "1.0.0"
+>>>>>>> updating-users2
 gem "bootstrap-sass",  "3.4.1"
 gem "sassc-rails",     "2.1.2"
 gem "sprockets-rails", "3.4.2"
@@ -15,6 +20,10 @@ gem "puma",            "5.6.4"
 gem "bootsnap",        "1.12.0", require: false
 
 group :development, :test do
+<<<<<<< HEAD
+=======
+  gem 'rubocop'
+>>>>>>> updating-users2
   gem "sqlite3", "1.4.2"
   gem "debug",   "1.5.0", platforms: %i[ mri mingw x64_mingw ]
 end
@@ -40,3 +49,7 @@ end
 
 # Windows ではタイムゾーン情報用の tzinfo-data gem を含める必要があります
 # gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+<<<<<<< HEAD
+=======
+#
+>>>>>>> updating-users2

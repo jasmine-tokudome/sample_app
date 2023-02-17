@@ -2,7 +2,12 @@
 User.create!(name:  "Example User",
              email: "example@railstutorial.org",
              password:              "foobar",
+<<<<<<< HEAD
              password_confirmation: "foobar")
+=======
+             password_confirmation: "foobar",
+admin: true)
+>>>>>>> updating-users2
 
 # 追加のユーザーをまとめて生成する
 99.times do |n|
