@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e628be95-3eea-4106-a7c0-9a4e7f1097f0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/sample_app" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/sample_app1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/sample_app1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample_app" beforeDir="false" afterPath="$PROJECT_DIR$/sample_app" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sample_app/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/sample_app/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/controllers/users_controller_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/controllers/users_controller_test.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +20,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -62,26 +68,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Rails.sample_app1">
-    <configuration default="true" type="RackRunConfigurationType" factoryName="Rack">
-      <RACK_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
-      <RACK_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
-      <RACK_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RACK_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RACK_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
-      <EXTENSION ID="BundlerRunConfigurationExtension" BUNDLE_MODE="AUTO" bundleExecEnabled="true" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov" ENABLE_BRANCH_COVERAGE="true" ENABLE_FORKED_COVERAGE="true">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <EXTENSION ID="org.jetbrains.plugins.ruby.rails.run.RailsRunConfigurationExtension" SCRATCH_USE_RAILS_RUNNER="false" />
-      <RACK_CONFIG_SETTINGS_ID NAME="PORT" VALUE="9292" />
-      <RACK_CONFIG_SETTINGS_ID NAME="IP" VALUE="0.0.0.0" />
-      <RACK_CONFIG_SETTINGS_ID NAME="CONFIG_FILE" VALUE="" />
-      <RACK_CONFIG_SETTINGS_ID NAME="RACK_SERVER_TYPE" VALUE="Default" />
-      <RACK_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
-      <method v="2" />
-    </configuration>
     <configuration name="sample_app1" type="RailsRunConfigurationType" factoryName="Rails">
       <module name="sample_app1" />
       <predefined_log_file enabled="true" id="RUBY_RAILS_SERVER" />
@@ -173,6 +159,9 @@
       <workItem from="1676534988530" duration="1453000" />
       <workItem from="1676536472589" duration="1970000" />
       <workItem from="1676538536470" duration="5063000" />
+      <workItem from="1676591075646" duration="5360000" />
+      <workItem from="1676726041223" duration="664000" />
+      <workItem from="1676728805158" duration="652000" />
     </task>
     <servers />
   </component>
@@ -184,7 +173,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="account-activation" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
