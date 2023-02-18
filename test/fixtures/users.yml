@@ -3,6 +3,10 @@ michael:
   email: michael@example.com
   password_digest: <%= User.digest('password') %>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  admin: true
+>>>>>>> updating-users2
 =======
   admin: true
 >>>>>>> updating-users2
@@ -12,8 +16,11 @@ archer:
   email: duchess@example.gov
   password_digest: <%= User.digest('password') %>
 <<<<<<< HEAD
+<<<<<<< HEAD
   
 =======
+=======
+>>>>>>> updating-users2
 
 lana:
   name: Lana Kane
@@ -32,4 +39,7 @@ user_<%= n %>:
   password_digest: <%= User.digest('password') %>
   <% end %>
 
+<<<<<<< HEAD
+>>>>>>> updating-users2
+=======
 >>>>>>> updating-users2

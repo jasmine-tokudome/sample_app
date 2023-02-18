@@ -40,7 +40,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> updating-users2
   test "should redirect destroy when not logged in" do
     assert_no_difference 'User.count' do
       delete user_path(@user)
@@ -58,5 +61,8 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
   end
 
+<<<<<<< HEAD
+>>>>>>> updating-users2
+=======
 >>>>>>> updating-users2
 end

@@ -11,7 +11,11 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2023_02_05_131724) do
+=======
+ActiveRecord::Schema[7.0].define(version: 2023_02_16_131113) do
+>>>>>>> updating-users2
 =======
 ActiveRecord::Schema[7.0].define(version: 2023_02_16_131113) do
 >>>>>>> updating-users2
@@ -23,6 +27,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_131113) do
     t.string "password_digest"
     t.string "remember_digest"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    t.boolean "admin", default: false
+>>>>>>> updating-users2
 =======
     t.boolean "admin", default: false
 >>>>>>> updating-users2

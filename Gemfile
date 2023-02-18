@@ -5,6 +5,11 @@ gem "rails",           "7.0.4"
 gem "bcrypt",          "3.1.18"
 gem "faker",           "2.21.0"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+gem "will_paginate",           "3.3.1"
+gem "bootstrap-will_paginate", "1.0.0"
+>>>>>>> updating-users2
 =======
 gem "will_paginate",           "3.3.1"
 gem "bootstrap-will_paginate", "1.0.0"
@@ -21,6 +26,10 @@ gem "bootsnap",        "1.12.0", require: false
 
 group :development, :test do
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  gem 'rubocop'
+>>>>>>> updating-users2
 =======
   gem 'rubocop'
 >>>>>>> updating-users2
@@ -50,6 +59,10 @@ end
 # Windows ではタイムゾーン情報用の tzinfo-data gem を含める必要があります
 # gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+#
+>>>>>>> updating-users2
 =======
 #
 >>>>>>> updating-users2

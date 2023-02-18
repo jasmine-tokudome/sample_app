@@ -70,6 +70,10 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     ansi (1.5.0)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    ast (2.4.2)
+>>>>>>> updating-users2
 =======
     ast (2.4.2)
 >>>>>>> updating-users2
@@ -83,6 +87,11 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    bootstrap-will_paginate (1.0.0)
+      will_paginate
+>>>>>>> updating-users2
 =======
     bootstrap-will_paginate (1.0.0)
       will_paginate
@@ -138,6 +147,10 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    json (2.6.3)
+>>>>>>> updating-users2
 =======
     json (2.6.3)
 >>>>>>> updating-users2
@@ -185,6 +198,12 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    parallel (1.22.1)
+    parser (3.2.1.0)
+      ast (~> 2.4.1)
+>>>>>>> updating-users2
 =======
     parallel (1.22.1)
     parser (3.2.1.0)
@@ -232,6 +251,10 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    rainbow (3.1.1)
+>>>>>>> updating-users2
 =======
     rainbow (3.1.1)
 >>>>>>> updating-users2
@@ -244,7 +267,10 @@ GEM
       io-console (~> 0.5)
     rexml (3.2.5)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> updating-users2
     rubocop (1.45.1)
       json (~> 2.3)
       parallel (~> 1.10)
@@ -257,6 +283,9 @@ GEM
       unicode-display_width (>= 2.4.0, < 3.0)
     rubocop-ast (1.26.0)
       parser (>= 3.2.1.0)
+<<<<<<< HEAD
+>>>>>>> updating-users2
+=======
 >>>>>>> updating-users2
     ruby-progressbar (1.11.0)
     rubyzip (2.3.2)
@@ -294,6 +323,10 @@ GEM
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    unicode-display_width (2.4.2)
+>>>>>>> updating-users2
 =======
     unicode-display_width (2.4.2)
 >>>>>>> updating-users2
@@ -311,6 +344,10 @@ GEM
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    will_paginate (3.3.1)
+>>>>>>> updating-users2
 =======
     will_paginate (3.3.1)
 >>>>>>> updating-users2
@@ -328,6 +365,10 @@ DEPENDENCIES
   bootsnap (= 1.12.0)
   bootstrap-sass (= 3.4.1)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  bootstrap-will_paginate (= 1.0.0)
+>>>>>>> updating-users2
 =======
   bootstrap-will_paginate (= 1.0.0)
 >>>>>>> updating-users2
@@ -345,6 +386,10 @@ DEPENDENCIES
   rails (= 7.0.4)
   rails-controller-testing (= 1.0.5)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  rubocop
+>>>>>>> updating-users2
 =======
   rubocop
 >>>>>>> updating-users2
@@ -357,6 +402,10 @@ DEPENDENCIES
   web-console (= 4.2.0)
   webdrivers (= 5.0.0)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  will_paginate (= 3.3.1)
+>>>>>>> updating-users2
 =======
   will_paginate (= 3.3.1)
 >>>>>>> updating-users2

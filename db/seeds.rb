@@ -3,7 +3,12 @@ User.create!(name:  "Example User",
              email: "example@railstutorial.org",
              password:              "foobar",
 <<<<<<< HEAD
+<<<<<<< HEAD
              password_confirmation: "foobar")
+=======
+             password_confirmation: "foobar",
+admin: true)
+>>>>>>> updating-users2
 =======
              password_confirmation: "foobar",
 admin: true)
