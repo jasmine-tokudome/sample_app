@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e628be95-3eea-4106-a7c0-9a4e7f1097f0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sample_app" beforeDir="false" afterPath="$PROJECT_DIR$/sample_app" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sample_app/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/sample_app/Gemfile.lock" afterDir="false" />
     </list>
@@ -21,7 +22,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2LgnofLcXhKzMuiKn9IQtztycwO" />
   <component name="ProjectLevelVcsManager">
@@ -157,7 +158,7 @@
       <workItem from="1676538536470" duration="5063000" />
       <workItem from="1676591075646" duration="5360000" />
       <workItem from="1676726041223" duration="664000" />
-      <workItem from="1676728805158" duration="1323000" />
+      <workItem from="1676728805158" duration="2053000" />
     </task>
     <servers />
   </component>
