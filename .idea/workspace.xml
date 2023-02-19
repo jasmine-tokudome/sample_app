@@ -5,12 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e628be95-3eea-4106-a7c0-9a4e7f1097f0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/activation_digest:string" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/migrate/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/migrate/.idea/migrate.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/migrate/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/migrate/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/migrate/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/migrate/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20230121135308_create_users.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/development.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/development.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sample_app" beforeDir="false" afterPath="$PROJECT_DIR$/sample_app" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sample_app/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/sample_app/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sample_app/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/sample_app/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/fixtures/users.yml" beforeDir="false" afterPath="$PROJECT_DIR$/test/fixtures/users.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/models/user_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/models/user_test.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +172,9 @@
       <workItem from="1676591075646" duration="5360000" />
       <workItem from="1676726041223" duration="664000" />
       <workItem from="1676728805158" duration="3006000" />
-      <workItem from="1676732669942" duration="1315000" />
+      <workItem from="1676732669942" duration="2268000" />
+      <workItem from="1676817619631" duration="360000" />
+      <workItem from="1676818085227" duration="365000" />
     </task>
     <servers />
   </component>
@@ -194,5 +206,19 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/sample_app/test/controllers/users_controller_test.rb</url>
+          <line>15</line>
+          <properties myBlockOrdinal="-1">
+            <option name="block-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
