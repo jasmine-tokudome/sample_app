@@ -159,7 +159,13 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
+<<<<<<< HEAD
+    nokogiri (1.14.0-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.14.0-x86_64-darwin)
+=======
     nokogiri (1.13.9-arm64-darwin)
+>>>>>>> 7f617ad4f927f7165677816f86791f22e7885ed5
       racc (~> 1.4)
     nokogiri (1.13.9-x86_64-darwin)
       racc (~> 1.4)
