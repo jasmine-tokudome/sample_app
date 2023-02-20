@@ -1,9 +1,24 @@
 class UsersController < ApplicationController
+<<<<<<< HEAD
+<<<<<<< HEAD
   before_action :logged_in_user, only: [:index, :edit, :update]
   before_action :correct_user,   only: [:edit, :update]
 
   def index
     @users = User.all
+=======
+=======
+>>>>>>> updating-users2
+  before_action :logged_in_user, only: [:index, :edit, :update,:destroy]
+  before_action :correct_user,   only: [:edit, :update]
+  before_action :admin_user,     only: :destroy
+
+  def index
+    @users = User.paginate(page: params[:page])
+<<<<<<< HEAD
+>>>>>>> updating-users2
+=======
+>>>>>>> updating-users2
   end
 
   def show
@@ -37,6 +52,21 @@ class UsersController < ApplicationController
       render 'edit', status: :unprocessable_entity
     end
   end
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> updating-users2
+
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User deleted"
+    redirect_to users_url, status: :see_other
+  end
+<<<<<<< HEAD
+>>>>>>> updating-users2
+=======
+>>>>>>> updating-users2
   
   private
 
@@ -62,4 +92,18 @@ class UsersController < ApplicationController
       redirect_to(root_url, status: :see_other) unless current_user?(@user)
     end
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> updating-users2
+    # 管理者かどうか確認
+  def admin_user
+    redirect_to(root_url, status: :see_other) unless current_user.admin?
+  end
+
+<<<<<<< HEAD
+>>>>>>> updating-users2
+=======
+>>>>>>> updating-users2
 end

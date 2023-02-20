@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 michael:
   name: Michael Example
   email: michael@example.com
@@ -38,3 +39,16 @@ user_<%= n %>:
   activated: true
   activated_at: <%= Time.zone.now %>
 <% end %>
+=======
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the "{}" from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+# column: value
+>>>>>>> 7f617ad4f927f7165677816f86791f22e7885ed5

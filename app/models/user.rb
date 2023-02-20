@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+<<<<<<< HEAD
   attr_accessor :remember_token, :activation_token
   before_save   :downcase_email
   before_create :create_activation_digest
@@ -59,4 +60,6 @@ class User < ApplicationRecord
     self.activation_digest = User.digest(activation_token)
   end
 
+=======
+>>>>>>> 7f617ad4f927f7165677816f86791f22e7885ed5
 end
