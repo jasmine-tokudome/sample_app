@@ -2,17 +2,9 @@
 User.create!(name:  "Example User",
              email: "example@railstutorial.org",
              password:              "foobar",
-<<<<<<< HEAD
-<<<<<<< HEAD
-             password_confirmation: "foobar")
-=======
              password_confirmation: "foobar",
-admin: true)
->>>>>>> updating-users2
-=======
-             password_confirmation: "foobar",
-admin: true)
->>>>>>> updating-users2
+admin: true
+activated_at: Time.zone.now))
 
 # 追加のユーザーをまとめて生成する
 99.times do |n|
@@ -22,5 +14,7 @@ admin: true)
   User.create!(name:  name,
                email: email,
                password:              password,
-               password_confirmation: password)
+               password_confirmation: password
+               activated: true,
+               activated_at: Time.zone.now))
 end
