@@ -30,7 +30,7 @@ group :test do
   gem "selenium-webdriver",       "4.2.0"
   gem "webdrivers",               "5.2.0"
   gem "rails-controller-testing", "1.0.5"
-  gem "minitest",                 "5.15.0"
+  gem "minitest",                 "5.17.0"
   gem "minitest-reporters",       "1.6.0"
   gem "guard",                    "2.18.0"
   gem "guard-minitest",           "2.4.6"
