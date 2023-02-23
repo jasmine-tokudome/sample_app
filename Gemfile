@@ -11,7 +11,7 @@ gem "sassc-rails",     "2.1.2"
 gem "sprockets-rails", "3.4.2"
 gem "importmap-rails", "1.1.5"
 gem "turbo-rails",     "1.1.1"
-gem "stimulus-rails",  "1.0.4"
+gem "stimulus-rails",  "1.2.1"
 gem "jbuilder",        "2.11.5"
 gem "puma",            "6.1.0"
 gem "bootsnap",        "1.16.0", require: false
