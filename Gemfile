@@ -14,7 +14,7 @@ gem "turbo-rails",     "1.1.1"
 gem "stimulus-rails",  "1.0.4"
 gem "jbuilder",        "2.11.5"
 gem "puma",            "5.6.4"
-gem "bootsnap",        "1.12.0", require: false
+gem "bootsnap",        "1.16.0", require: false
 
 group :development, :test do
   gem "sqlite3", "1.4.2"
