@@ -3957,3 +3957,314 @@ FOREIGN KEY ("user_id")
   [1m[36mMicropost Load (0.5ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" ORDER BY "microposts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
   [1m[36mMicropost Load (0.4ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" ORDER BY "microposts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
   [1m[36mMicropost Load (0.4ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" ORDER BY "microposts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20230121135308)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230121135308"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddIndexToUsersEmail (20230122150428)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230122150428"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddPasswordDigestToUsers (20230122153256)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "password_digest" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230122153256"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddRememberDigestToUsers (20230205131724)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_digest" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230205131724"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddAdminToUsers (20230216131113)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "users" ADD "admin" boolean DEFAULT 0[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230216131113"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddActivationToUsers (20230219142309)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "users" ADD "activation_digest" varchar[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "users" ADD "activated" boolean DEFAULT 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mALTER TABLE "users" ADD "activated_at" datetime(6)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230219142309"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddResetToUsers (20230224095117)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_digest" varchar[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_sent_at" datetime(6)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230224095117"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateMicroposts (20230225005358)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "microposts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_558c81314b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_microposts_on_user_id" ON "microposts" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_microposts_on_user_id_and_created_at" ON "microposts" ("user_id", "created_at")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230225005358"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-02-25 15:11:35.002806"], ["updated_at", "2023-02-25 15:11:35.002806"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2023-02-26 00:48:34 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 67.6ms | Allocations: 30289)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 57.7ms | Allocations: 8781)
+  Rendered layout layouts/application.html.erb (Duration: 157.6ms | Allocations: 61224)
+Completed 500 Internal Server Error in 167ms (ActiveRecord: 0.4ms | Allocations: 64230)
+
+
+  
+ActionView::Template::Error (undefined method `session_token' for nil:NilClass
+
+      @current_user ||= user if session[:session_token] == user.session_token
+                                                               ^^^^^^^^^^^^^^):
+    14:           class="nav navbar-nav navbar-right">
+    15:         <li><%= link_to "Home", root_path %></li>
+    16:         <li><%= link_to "Help", help_path %></li>
+    17:         <% if logged_in? %>
+    18:         <li><%= link_to "Users", users_path %></li>
+    19:           <li class="dropdown">
+    20:             <a href="#" id="account" class="dropdown-toggle">
+  
+app/helpers/sessions_helper.rb:22:in `current_user'
+app/helpers/sessions_helper.rb:39:in `logged_in?'
+app/views/layouts/_header.html.erb:17
+app/views/layouts/application.html.erb:13
+Started GET "/" for ::1 at 2023-02-26 00:50:08 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 52.6ms | Allocations: 30336)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 18.8ms | Allocations: 8787)
+  Rendered layout layouts/application.html.erb (Duration: 156.8ms | Allocations: 61271)
+Completed 500 Internal Server Error in 165ms (ActiveRecord: 0.2ms | Allocations: 64275)
+
+
+  
+ActionView::Template::Error (undefined method `session_token' for nil:NilClass
+
+      @current_user ||= user if session[:session_token] == user.session_token
+                                                               ^^^^^^^^^^^^^^):
+    14:           class="nav navbar-nav navbar-right">
+    15:         <li><%= link_to "Home", root_path %></li>
+    16:         <li><%= link_to "Help", help_path %></li>
+    17:         <% if logged_in? %>
+    18:         <li><%= link_to "Users", users_path %></li>
+    19:           <li class="dropdown">
+    20:             <a href="#" id="account" class="dropdown-toggle">
+  
+app/helpers/sessions_helper.rb:22:in `current_user'
+app/helpers/sessions_helper.rb:39:in `logged_in?'
+app/views/layouts/_header.html.erb:17
+app/views/layouts/application.html.erb:13
+Started GET "/" for ::1 at 2023-02-26 00:54:31 +0900
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 5.9ms | Allocations: 2992)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 3078)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.1ms | Allocations: 3864)
+
+
+  
+ActionView::Template::Error (undefined method `session_token' for nil:NilClass
+
+      @current_user ||= user if session[:session_token] == user.session_token
+                                                               ^^^^^^^^^^^^^^):
+    1: <% if logged_in? %>
+    2:   <div class="row">
+    3:     <aside class="col-md-4">
+    4:       <section class="user_info">
+  
+app/helpers/sessions_helper.rb:22:in `current_user'
+app/helpers/sessions_helper.rb:39:in `logged_in?'
+app/views/static_pages/home.html.erb:1
+Started POST "/__web_console/repl_sessions/98d0435aafa8b739c955322da7128123/trace" for ::1 at 2023-02-26 00:56:22 +0900
+Started POST "/__web_console/repl_sessions/98d0435aafa8b739c955322da7128123/trace" for ::1 at 2023-02-26 00:56:25 +0900
+Started POST "/__web_console/repl_sessions/98d0435aafa8b739c955322da7128123/trace" for ::1 at 2023-02-26 00:56:43 +0900
+Started GET "/" for ::1 at 2023-02-26 00:58:20 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 10.2ms | Allocations: 9035)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 9145)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.3ms | Allocations: 12148)
+
+
+  
+ActionView::Template::Error (undefined method `session_token' for nil:NilClass
+
+      @current_user ||= user if session[:session_token] == user.session_token
+                                                               ^^^^^^^^^^^^^^):
+    1: <% if logged_in? %>
+    2:   <div class="row">
+    3:     <aside class="col-md-4">
+    4:       <section class="user_info">
+  
+app/helpers/sessions_helper.rb:22:in `current_user'
+app/helpers/sessions_helper.rb:39:in `logged_in?'
+app/views/static_pages/home.html.erb:1
+Started GET "/" for ::1 at 2023-02-26 01:04:29 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 12.6ms | Allocations: 9039)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 9149)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.3ms | Allocations: 12152)
+
+
+  
+ActionView::Template::Error (undefined method `session_token' for nil:NilClass
+
+      @current_user ||= user if session[:session_token] == user.session_token
+                                                               ^^^^^^^^^^^^^^):
+    1: <% if logged_in? %>
+    2:   <div class="row">
+    3:     <aside class="col-md-4">
+    4:       <section class="user_info">
+  
+app/helpers/sessions_helper.rb:22:in `current_user'
+app/helpers/sessions_helper.rb:39:in `logged_in?'
+app/views/static_pages/home.html.erb:1
+Started POST "/__web_console/repl_sessions/1f7e7beff112c0fa771be5cff54ec821/trace" for ::1 at 2023-02-26 01:44:17 +0900
+Started GET "/" for ::1 at 2023-02-26 01:49:52 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 10.8ms | Allocations: 9029)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 9139)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.3ms | Allocations: 12142)
+
+
+  
+ActionView::Template::Error (undefined method `session_token' for nil:NilClass
+
+      @current_user ||= user if session[:session_token] == user.session_token
+                                                               ^^^^^^^^^^^^^^):
+    1: <% if logged_in? %>
+    2:   <div class="row">
+    3:     <aside class="col-md-4">
+    4:       <section class="user_info">
+  
+app/helpers/sessions_helper.rb:22:in `current_user'
+app/helpers/sessions_helper.rb:39:in `logged_in?'
+app/views/static_pages/home.html.erb:1
+Started GET "/" for ::1 at 2023-02-26 01:56:43 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 45.2ms | Allocations: 9195)
+  Rendered layout layouts/application.html.erb (Duration: 45.3ms | Allocations: 9305)
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 0.3ms | Allocations: 12308)
+
+
+  
+ActionView::Template::Error (undefined method `session_token' for nil:NilClass
+
+      @current_user ||= user if session[:session_token] == user.session_token
+                                                               ^^^^^^^^^^^^^^):
+    1: <% if logged_in? %>
+    2:   <div class="row">
+    3:     <aside class="col-md-4">
+    4:       <section class="user_info">
+  
+app/helpers/sessions_helper.rb:22:in `current_user'
+app/helpers/sessions_helper.rb:39:in `logged_in?'
+app/views/static_pages/home.html.erb:1
+Started POST "/__web_console/repl_sessions/2e020f383d62f694d1fddf3ff9e42d11/trace" for ::1 at 2023-02-26 01:59:03 +0900
+Started POST "/__web_console/repl_sessions/2e020f383d62f694d1fddf3ff9e42d11/trace" for ::1 at 2023-02-26 01:59:08 +0900
+Started GET "/" for ::1 at 2023-02-26 02:05:37 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2215)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 2325)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 5318)
+
+
+  
+SyntaxError (/Users/tokudome/src/github.com/sample_app/app/models/user.rb:93: syntax error, unexpected `end', expecting end-of-input
+  end
+  ^~~
+):
+  
+app/models/user.rb:93: syntax error, unexpected `end', expecting end-of-input
+app/models/user.rb:93: syntax error, unexpected `end', expecting end-of-input
+app/models/user.rb:93: syntax error, unexpected `end', expecting end-of-input
+app/helpers/sessions_helper.rb:21:in `current_user'
+app/helpers/sessions_helper.rb:39:in `logged_in?'
+app/views/static_pages/home.html.erb:1
+Started GET "/" for ::1 at 2023-02-26 02:06:05 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 13.5ms | Allocations: 9171)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 9281)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.4ms | Allocations: 12277)
+
+
+  
+ActionView::Template::Error (undefined method `session_token' for nil:NilClass
+
+      @current_user ||= user if session[:session_token] == user.session_token
+                                                               ^^^^^^^^^^^^^^):
+    1: <% if logged_in? %>
+    2:   <div class="row">
+    3:     <aside class="col-md-4">
+    4:       <section class="user_info">
+  
+app/helpers/sessions_helper.rb:22:in `current_user'
+app/helpers/sessions_helper.rb:39:in `logged_in?'
+app/views/static_pages/home.html.erb:1
+Started POST "/__web_console/repl_sessions/a6664ec56a2430ab770ee29e783992e3/trace" for ::1 at 2023-02-26 02:10:42 +0900
+Started POST "/__web_console/repl_sessions/a6664ec56a2430ab770ee29e783992e3/trace" for ::1 at 2023-02-26 02:10:46 +0900
+Started POST "/__web_console/repl_sessions/a6664ec56a2430ab770ee29e783992e3/trace" for ::1 at 2023-02-26 02:10:49 +0900
+Started POST "/__web_console/repl_sessions/a6664ec56a2430ab770ee29e783992e3/trace" for ::1 at 2023-02-26 02:10:53 +0900
+Started POST "/__web_console/repl_sessions/a6664ec56a2430ab770ee29e783992e3/trace" for ::1 at 2023-02-26 02:10:55 +0900
+Started POST "/__web_console/repl_sessions/a6664ec56a2430ab770ee29e783992e3/trace" for ::1 at 2023-02-26 02:11:13 +0900
+Started POST "/__web_console/repl_sessions/a6664ec56a2430ab770ee29e783992e3/trace" for ::1 at 2023-02-26 02:11:21 +0900
+Started POST "/__web_console/repl_sessions/a6664ec56a2430ab770ee29e783992e3/trace" for ::1 at 2023-02-26 02:11:25 +0900
