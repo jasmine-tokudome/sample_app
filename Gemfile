@@ -20,7 +20,7 @@ gem "bootsnap",        "1.16.0", require: false
 
 group :development, :test do
   gem "sqlite3", "1.6.2"
-  gem "debug",   "1.7.1", platforms: %i[ mri mingw x64_mingw ]
+  gem "debug",   "1.7.2", platforms: %i[ mri mingw x64_mingw ]
 end
 
 group :development do
