@@ -39,7 +39,7 @@ group :test do
 end
 
 group :production do
-  gem "pg", "1.4.5"
+  gem "pg", "1.4.6"
 end
 
 # Windows ではタイムゾーン情報用の tzinfo-data gem を含める必要があります
