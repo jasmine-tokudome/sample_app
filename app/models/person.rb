@@ -1,5 +1,5 @@
 class Person < ApplicationRecord
-  validates :name, presence: true
+  validates :name, presence: { message: "省略できません" }
   validate :age_must_be_at_least_10, unless: -> { name.include?(".exc") }
 
   private
